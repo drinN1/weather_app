@@ -15,7 +15,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_riverpod: ^2.3.6
   data_class_plugin: ^0.2.1
-  intl: any
   http: ^1.2.0
 
 dev_dependencies:

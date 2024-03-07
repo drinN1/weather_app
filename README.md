@@ -62,12 +62,38 @@ Entry point of the Flutter app, where the app is initialized and runs.
 
 
 
+## Packages Used
+### flutter_riverpod: ^2.3.6
+- **Purpose:**
+flutter_riverpod is a state management library for Flutter applications. It offers a simple and intuitive way to manage state without the boilerplate code associated with traditional state management solutions like StatefulWidget or Provider. With Riverpod, you can easily manage your app's state in a more predictable and scalable manner.
+
+- **Why I Chose It:**
+I chose flutter_riverpod for its flexibility and ease of use. It provides robust state management capabilities while maintaining a minimal footprint on our codebase. Its support for dependency injection and the ability to create and manage scoped providers make it an ideal choice for managing complex state requirements across our app.
+
+### data_class_plugin: ^0.2.1**
+- **Purpose:**
+data_class_plugin is a code generation tool for creating immutable data classes in Dart. It allows us to define data models concisely using annotations, reducing the boilerplate code needed for immutable data structures.
+
+- **Why I Chose It:**
+I opted for data_class_plugin to streamline the process of creating immutable data models. By leveraging code generation, we can focus on defining the structure and properties of our data classes without the need to manually implement boilerplate code for constructors, equality checks, and other common operations. This enhances code readability and maintainability while reducing the risk of errors.
+
+### http: ^1.2.0
+- **Purpose:**
+http is a package that provides HTTP client functionality for making requests and receiving responses from web servers. It simplifies the process of integrating network calls into your Flutter app, enabling communication with RESTful APIs and other web services.
+
+- **Why I Chose It:**
+Networking is a fundamental aspect of many modern mobile applications, allowing them to fetch data from remote servers and interact with external services.
+
+## Assets Folder
+### Purpose:
+The assets folder contains all the images used within our app.
+
+### Why I Created It:
+I created the assets folder to centralize and organize all the image resources needed for our app. By storing images in this folder, we can easily access and reference them throughout our app's codebase.
+
 
 ## Welcome Screen
 The Welcome screen serves as the initial interface where users can set their location and get started with weather updates.![Simulator Screen Shot - iPhone 14 Pro - 2024-03-07 at 23 08 22](https://github.com/drinN1/weather_app/assets/90065300/bec0c057-34ae-4d6f-a60b-c313cda877c1)
-
-
-
 
 ### Description: 
 Text Instruction: A welcome message prompts users to input their city's name to check the latest weather updates.
