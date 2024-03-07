@@ -1,0 +1,6 @@
+include: package:lints/recommended.yaml
+
+# You need to register the plugin under analyzer > plugins
+analyzer:
+  plugins:
+    - data_class_plugin
