@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/common/widgets/app_button.dart';
 import 'package:weather_app/common/widgets/app_text_field.dart';
+import 'package:weather_app/modules/home/data/home_notifier.dart';
+import 'package:weather_app/modules/home/home_screen.dart';
 
 class WelcomeScreen extends ConsumerStatefulWidget {
   const WelcomeScreen({super.key});
@@ -14,7 +16,7 @@ class _HomeScreenState extends ConsumerState<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Color(0xff2F409E),
       body: Padding(
         padding: const EdgeInsets.only(
           top: 100,
@@ -43,7 +45,7 @@ class _HomeScreenState extends ConsumerState<WelcomeScreen> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueGrey[600],
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -54,7 +56,7 @@ class _HomeScreenState extends ConsumerState<WelcomeScreen> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueGrey[800],
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
@@ -64,13 +66,22 @@ class _HomeScreenState extends ConsumerState<WelcomeScreen> {
             Container(
               height: 50,
               child: AppTextField(
-                textController: TextEditingController(),
+                textController: ref.watch(homeNotifier).cityName!,
                 hintText: 'City name',
               ),
             ),
             Spacer(),
             AppButton(
-              onPressed: () {},
+              onPressed: () {
+                ref
+                    .read(homeNotifier.notifier)
+                    .getCityWeather()
+                    .then((value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()),
+                        ));
+              },
               buttonText: 'Continue',
             )
           ],

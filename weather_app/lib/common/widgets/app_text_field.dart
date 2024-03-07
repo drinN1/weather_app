@@ -13,13 +13,16 @@ class AppTextField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return TextField(
+      cursorColor: Colors.white,
       enableSuggestions: false,
       autocorrect: false,
       controller: textController,
+      style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 14,
+          color: Colors.white,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         enabledBorder: OutlineInputBorder(
@@ -28,14 +31,14 @@ class AppTextField extends ConsumerWidget {
           ),
           borderSide: BorderSide(
             width: 1,
-            color: Colors.grey,
+            color: Colors.white,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
             width: 1,
-            color: Colors.grey[700]!,
+            color: Colors.white,
           ),
         ),
       ),

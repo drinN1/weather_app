@@ -5,7 +5,7 @@ class AppButton extends ConsumerWidget {
   const AppButton({
     required this.onPressed,
     required this.buttonText,
-    this.buttonColor = const Color(0xff11B4F0),
+    this.buttonColor = const Color(0xff526DFD),
     this.textColor = Colors.white,
   });
   final VoidCallback onPressed;
