@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weather_app/common/design/colors.dart';
 
 class TwoTextsRow extends ConsumerWidget {
   final String mainText;
@@ -13,7 +14,7 @@ class TwoTextsRow extends ConsumerWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: Color(0xff526DFD).withOpacity(0.6),
+        color: appBarBackgroundColor.withOpacity(0.6),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -22,7 +23,7 @@ class TwoTextsRow extends ConsumerWidget {
           Text(
             mainText,
             style: TextStyle(
-              color: Colors.white,
+              color: textColor,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -30,7 +31,7 @@ class TwoTextsRow extends ConsumerWidget {
           Text(
             infoText,
             style: TextStyle(
-              color: Colors.white,
+              color: textColor,
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),

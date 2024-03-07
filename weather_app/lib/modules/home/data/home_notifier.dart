@@ -22,10 +22,16 @@ class HomeNotifier extends Notifier<HomeState> {
 
     final weatherData = await _homeRepository
         .getCityWeather(
-          state.cityName!.text,
-          state.metricSystem! ? 'metric' : 'imperial',
-        )!
-        .then((value) => state = state.copyWith(homeModel: value));
+      state.cityName!.text,
+      state.metricSystem! ? 'metric' : 'imperial',
+    )!
+        .then((value) {
+      if (value!.name == null) {
+        state = state.copyWith(isCityValid: false);
+      } else {
+        state = state.copyWith(isCityValid: true, homeModel: value);
+      }
+    });
 
     state = state.copyWith(isLoading: false);
 
@@ -34,6 +40,10 @@ class HomeNotifier extends Notifier<HomeState> {
 
   Future<void> changeUnit(bool value) async {
     state = state.copyWith(metricSystem: value);
+  }
+
+  Future<void> changeIsEmptyBool(bool value) async {
+    state = state.copyWith(isFiledEmpty: value);
   }
 
   Widget showImageBasedOnWeather() {
@@ -58,6 +68,16 @@ class HomeNotifier extends Notifier<HomeState> {
         width: 150,
       );
     }
+  }
+
+  Future search() async {
+    if (state.cityName!.text.isEmpty) {
+      changeIsEmptyBool(true);
+    } else {
+      changeIsEmptyBool(false);
+      getCityWeather();
+    }
+    state = state.copyWith();
   }
 }
 

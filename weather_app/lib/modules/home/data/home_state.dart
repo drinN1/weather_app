@@ -9,7 +9,9 @@ class HomeState {
       : homeModel = null,
         isLoading = false,
         cityName = TextEditingController(),
-        metricSystem = true;
+        metricSystem = true,
+        isFiledEmpty = false,
+        isCityValid = true;
 
   /// Shorthand constructor
   HomeState({
@@ -17,6 +19,8 @@ class HomeState {
     required this.isLoading,
     this.cityName,
     this.metricSystem,
+    this.isFiledEmpty,
+    this.isCityValid,
   });
 
   /// Shorthand constructor
@@ -24,6 +28,8 @@ class HomeState {
   final bool isLoading;
   final TextEditingController? cityName;
   final bool? metricSystem;
+  final bool? isFiledEmpty;
+  final bool? isCityValid;
 
   /// Creates a new instance of [HomeState] with optional new values
   HomeState copyWith({
@@ -31,12 +37,16 @@ class HomeState {
     final bool? isLoading,
     final TextEditingController? cityName,
     final bool? metricSystem,
+    final bool? isFiledEmpty,
+    final bool? isCityValid,
   }) {
     return HomeState(
       homeModel: homeModel ?? this.homeModel,
       isLoading: isLoading ?? this.isLoading,
       cityName: cityName ?? this.cityName,
       metricSystem: metricSystem ?? this.metricSystem,
+      isFiledEmpty: isFiledEmpty ?? this.isFiledEmpty,
+      isCityValid: isCityValid ?? this.isCityValid,
     );
   }
 
@@ -46,7 +56,7 @@ class HomeState {
     String value = 'HomeState{<optimized out>}';
     assert(() {
       value =
-          'HomeState@<$hexIdentity>{homeModel: $homeModel, isLoading: $isLoading, cityName: $cityName, metricSystem: $metricSystem}';
+          'HomeState@<$hexIdentity>{homeModel: $homeModel, isLoading: $isLoading, cityName: $cityName, metricSystem: $metricSystem, isFiledEmpty: $isFiledEmpty, isCityValid: $isCityValid}';
       return true;
     }());
     return value;
@@ -61,6 +71,8 @@ class HomeState {
       isLoading,
       cityName,
       metricSystem,
+      isFiledEmpty,
+      isCityValid,
     ]);
   }
 
@@ -74,6 +86,8 @@ class HomeState {
             homeModel == other.homeModel &&
             isLoading == other.isLoading &&
             cityName == other.cityName &&
-            metricSystem == other.metricSystem;
+            metricSystem == other.metricSystem &&
+            isFiledEmpty == other.isFiledEmpty &&
+            isCityValid == other.isCityValid;
   }
 }

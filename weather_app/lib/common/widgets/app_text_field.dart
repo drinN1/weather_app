@@ -5,10 +5,12 @@ class AppTextField extends ConsumerWidget {
   const AppTextField({
     required this.textController,
     this.hintText = '',
+    this.suffixIcon = null,
   });
 
   final TextEditingController textController;
   final String hintText;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,6 +21,8 @@ class AppTextField extends ConsumerWidget {
       controller: textController,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
+        suffixIconConstraints: BoxConstraints(minWidth: 24, minHeight: 24),
+        suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 14,
