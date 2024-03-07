@@ -12,8 +12,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(child: Text('HomeScreen')),
+      backgroundColor: Colors.blue[50],
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 10,
+          right: 10,
+        ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Text('home')]),
+      ),
     );
   }
 }
